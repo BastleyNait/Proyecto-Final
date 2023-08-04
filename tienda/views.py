@@ -14,7 +14,7 @@ def carrito(request):
 
 def signin(request):
     if request.method == "GET":
-        return render(request, 'signin', {
+        return render(request, 'signin.html', {
             'form' : UserCreationForm
         } )
     else:
@@ -28,19 +28,19 @@ def signin(request):
                 login(request,user)
                 return redirect('home')
             except IntegrityError:
-                return render(request, 'signin',{
+                return render(request, 'signin.html',{
                                   'form':UserCreationForm,
                                   'error': 'El nombre de usuario no esta disponible',
                               }
                               )
-        return render(request, 'sigin', {
+        return render(request, 'signin.html', {
             'form':UserCreationForm,
             'error': "Las contraseñas no coiciden",
         })
 
 def login(request):
     if request.method == "GET":
-        return render(request, 'login',{
+        return render(request, 'login.html',{
             'form': AuthenticationForm
         })
     else:
@@ -48,7 +48,7 @@ def login(request):
             request, username=request.POST['username'], password=request.POST['password']
         )
         if user is None:
-            return render(request, 'login',{
+            return render(request, 'login.html',{
             'form': AuthenticationForm,
             'error': 'El usuario o la contraseña son incorrectos'
             }) 
