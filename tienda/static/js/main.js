@@ -1,4 +1,3 @@
-// PRODUCTOS
 const productos = [
     // Bebidas
     {

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load static%}
 
 {% block content %}
 <div class="wrapper">
     <header class="header-mobile">
         <h1 class="logo">
-            <img src="img/logo.png" alt="">
+            <img src="{static 'img/logo.png'}" alt="">
         </h1>
         <button class="open-menu" id="open-menu">
             <i class="bi bi-list"></i>
@@ -64,7 +65,7 @@
     </main>
 </div>
 
-<script src="./js/carrito.js"></script>
-<script src="./js/menu.js"></script>
+<script src="{% static 'js/carrito.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
 
 {% endblock %}

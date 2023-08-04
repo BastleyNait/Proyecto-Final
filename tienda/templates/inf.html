@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{static 'css/style.css'}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
         <div class="welcome-back">
             <div class="message">
                 <h2>Bienvenido a </h2>           
-                <img id="atras" src="img/logo.png" alt="">
+                <img id="atras" src="{static 'img/logo.png'}" alt="logo">
                 <h2>MINIMARKET</h2> 
                 <br></br><p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
                 <button class="sign-up-btn">Iniciar Sesion</button>
@@ -62,14 +62,14 @@
         <div class="welcome-back">
             <div class="message">
                 <h2>Bienvenido a </h2>           
-                <img id="atras" src="img/logo.png" alt="">
+                <img id="atras" src="{static 'img/logo.png'}" alt="">
                 <h2>MINIMARKET</h2> 
                 <br></br><p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
                 <button class="sign-up-btn">Iniciar Sesion</button>
             </div>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
