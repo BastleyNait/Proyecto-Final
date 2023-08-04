@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             id: "Fanta 3L",
             titulo: "Fanta Piña 3L",
-            imagen: "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/42529463-Pz3z-wq1-medium.jpg",
+            imagen: "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/40003111-G08fIp7u-medium.jpg",
             categoria: {
                 nombre: "bebidas",
                 id: "bebidas"
