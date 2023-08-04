@@ -1,3 +1,2 @@
-/venv/
-db.sqilte3
-
+.vscode
+venv
