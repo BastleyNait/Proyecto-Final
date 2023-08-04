@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOM MARKET</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Casa</a>
+            </li>
+            <li>
+                <a href="/tareas">Tareas</a>
+            </li>           
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/tareas/crear">Crear Tarea</a>
+            </li>
+            <li>
+                <a href="/logout">Cerrar Sesión</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/registro">Registro</a>
+            </li>
+            <li>
+                <a href="/login">Iniciar Sesión</a>
+            </li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
