@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="{% static '/css/main.css' %}">
 </head>
 <body>
-
     <div class="wrapper">
         <header class="header-mobile">
-            <h1 class="logo">
-                <img id="atras" src="{% static '/img/logo.png' %}" alt="">
-            </h1>
+            <a href="{% url 'home' %}" class="logo-link">
+                <h1 class="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="logo">
+                </h1>
+            </a>
             <button class="open-menu" id="open-menu">
                 <i class="bi bi-list"></i>
             </button>
@@ -49,6 +50,7 @@
                             <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
                         </a>
                     </li>
+
                 </ul>
             </nav>
             <footer>
