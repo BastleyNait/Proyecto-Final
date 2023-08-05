@@ -1,2 +1,5 @@
 .vscode
 venv
+db.sqlite3
+erd.dot
+
