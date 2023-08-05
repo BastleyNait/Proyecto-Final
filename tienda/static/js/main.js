@@ -288,24 +288,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function cargarProductos(productosElegidos) {
         contenedorProductos.innerHTML = "";
-        // implementacion para recibir json de rest y ya no utilizar el arreglo de objetos de arriba (todavia no en uso)
-        // fetch() 
-        // .then(res => res.json)
-        // .then(data => data.forEach(producto => {
+        //implementacion para recibir json de rest y ya no utilizar el arreglo de objetos de arriba (todavia no en uso)
+        fetch() 
+        .then(res => res.json)
+        .then(data => data.forEach(producto => {
 
-        //     const div = document.createElement("div");
-        //     div.classList.add("producto");
-        //     div.innerHTML = `
-        //         <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
-        //         <div class="producto-detalles">
-        //             <h3 class="producto-titulo">${producto.titulo}</h3>
-        //             <p class="producto-precio">$${producto.precio}</p>
-        //             <button class="producto-agregar" id="${producto.id}">Agregar</button>
-        //         </div>
-        //     `;
+            const div = document.createElement("div");
+            div.classList.add("producto");
+            div.innerHTML = `
+                <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+                <div class="producto-detalles">
+                    <h3 class="producto-titulo">${producto.titulo}</h3>
+                    <p class="producto-precio">$${producto.precio}</p>
+                    <button class="producto-agregar" id="${producto.id}">Agregar</button>
+                </div>
+            `;
 
-        //     contenedorProductos.append(div);
-        // }))
+            contenedorProductos.append(div);
+        }))
 
         productosElegidos.forEach(producto => {
 
@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 tituloPrincipal.innerText = "Todos los productos";
                 cargarProductos(productos);
             }
-
+            
         })
     });
 
