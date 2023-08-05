@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>
-        registrarse
-    </button>
-</form>
+    {% block content %}
+    <div class="container-form container">
+        <h3 class="text-center">Registrarse</h3>
+        <hr>
+        <div class="register-container">
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <p>Hubo un error en el registro. Por favor, verifique los campos e intente nuevamente.</p>
+                </div>
+            {% endif %}
+            <form id="form-register"  class="form-horizontal" method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button id="registrar" class="button-register" type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
+        </div>
+    </div>
 {% endblock %}
