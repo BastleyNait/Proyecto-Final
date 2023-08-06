@@ -41,13 +41,12 @@ INSTALLED_APPS = [
     'django_extensions',
     'tienda',
     'livereload',
-    
+    'rest_framework',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-
 ]
 
 
