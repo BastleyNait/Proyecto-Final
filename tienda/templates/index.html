@@ -50,6 +50,8 @@
                             <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
                         </a>
                         {% if user.is_authenticated %}
+                        <br><br>
+                        <h4>Bienvenido, {{ user.username }}!</h4>
                         <a class="boton-menu boton-carrito" href="{% url 'logout' %}">
                             <i class="bi bi-door-open"></i> 
                             Cerrar Sesión 
