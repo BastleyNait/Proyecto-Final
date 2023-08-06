@@ -12,6 +12,9 @@ def home(request):
 def carrito(request):
     return render(request,'carrito.html')
 
+def compras(request):
+    return render(request,'compra.html')
+
 def signin(request):
     if request.method == "GET":
         return render(request, 'signin.html', {

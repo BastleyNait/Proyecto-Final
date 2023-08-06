@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const div = document.createElement("div");
                 div.classList.add("carrito-producto");
-                div.innerHTML = `
+                div.innerHTML = `   
                 <img class="carrito-producto-imagen" src="${producto.imagen_url}" alt="${producto.name}">
                 <div class="carrito-producto-titulo">
                     <small>Título</small>
@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <button class="carrito-producto-eliminar" id="${producto.name}"><i class="bi bi-trash-fill"></i></button>
             `;
-
                 contenedorCarritoProductos.append(div);
             })
 
