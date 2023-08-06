@@ -1,7 +1,5 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Customer
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import SignUpForm, LogInForm
