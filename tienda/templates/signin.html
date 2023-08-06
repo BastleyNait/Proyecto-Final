@@ -1,4 +1,76 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load socialaccount %}
+    {% providers_media_js %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="{% static 'css/log.css' %}">
+    <script src="{% static 'js/log.js' %}" defer></script>
+</head>
+<body>
+    <!--messages-->
+    <div class="messages">
+        <img class="message-icon" src="{% static 'icons/sign.svg' %}" alt="error">
+        <div class="message">
+            <h3 class="message-title title">Error</h3>
+            <p class="message-paragraph">Algo salio mal!</p>
+        </div>
+        <span class="message-close error">x</span>
+    </div>
+    <!--end messages-->
+
+    <div class="container">
+        <div class="card center spacer">
+            <h1 class="title text-center">Registrarse</h1>
+            <div class="social-login">
+                    <form action="{% provider_login_url 'google' %}" method="post">
+                        {% csrf_token %}
+                        <button class="social-btn" type="submit"><img class="icon" src="{% static 'icons/gmail.svg' %}" alt="gmail icon">GOOGLE</button>
+                      </form>
+                </button>
+            </div>
+            <div class="text-center line form-divider">o</div>
+            <form method="POST" class="login-form spacer" id="signup-form" action="."> 
+                {% csrf_token %}                
+                    <div class="input-group"> 
+                        <img class="icon input-icon" src="{% static 'icons/profile-user.svg' %}" alt=""> 
+                        {{form.username}} 
+                    </div>  
+                    <div class="input-group"> 
+                        <img class="icon input-icon" src="{% static 'icons/key.svg' %}" alt=""> 
+                        {{form.password1}} 
+                    </div> 
+                    <div class="input-group"> 
+                        <img class="icon input-icon" src="{% static 'icons/key.svg' %}" alt=""> 
+                        {{form.password2}} 
+                    </div> 
+          
+                    <input type="submit" class="submit" value="Registrarse"> 
+            </form> 
+            <script>
+                {% if error %}
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: "{{ error }}"
+                });
+                {% endif %}
+            </script>
+        </div>
+    </div>
+    <div class="redirect">
+        Ya tienes cuenta?&nbsp;<a href="/login" class="link">Iniciar Sesión</a>
+    </div>
+
+
+</body>
+</html>
+
+{% comment %} {% extends 'base.html' %}
 
     {% block content %}
     <div class="container-form container">
@@ -18,4 +90,4 @@
             <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
         </div>
     </div>
-{% endblock %}
+{% endblock %} {% endcomment %}
