@@ -49,6 +49,9 @@
                         <a class="boton-menu boton-carrito" href="{% url 'carrito' %}">
                             <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
                         </a>
+                        {% if user.is_authenticated %}
+                        <p>Bienvenido, {{ user.username }}</p>
+                    {% else %}
                         <a class="boton-menu boton-carrito" href="{% url 'login' %}">
                             <i class="bi bi-box-arrow-in-left"></i> 
                             Iniciar Sesión 
@@ -57,6 +60,7 @@
                             <i class="bi bi-door-open"></i> 
                             Crear Cuenta 
                         </a>
+                    {% endif %}
                     </li>
                 </ul>
             </nav>
