@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import io
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,7 +41,17 @@ INSTALLED_APPS = [
     'django_extensions',
     'tienda',
     'livereload',
+    
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 ]
+
+
+
 GRAPH_MODELS ={
 'all_applications': True,
 'graph_models': True,
@@ -62,7 +73,7 @@ ROOT_URLCONF = 'tiendaOnline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,3 +141,31 @@ STATICFILES_DIRS = [BASE_DIR / "tienda/static"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
+
+SITE_ID= 1
+
+LOGIN_REDIRECT_URL='/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '388283605063-2t1al21b13ie7i8v88ubqnhuikj7g3gv.apps.googleusercontent.com',
+            'secret': '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',
+            'key': '',
+            'redirect_uri': 'https://accounts.google.com/o/oauth2/auth'
+
+            
+        }
+    }
+}

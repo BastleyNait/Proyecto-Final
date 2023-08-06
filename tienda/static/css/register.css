@@ -1,3 +1,6 @@
+
+
+
 /* Estilos generales */
 .container-form {
 
@@ -56,7 +59,7 @@
     button {
       display: block;
       width: 100%;
-      background-color: #af784c;
+      background-color: #ffa053;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -67,11 +70,11 @@
     }
     
     .button-register:hover {
-      background-color: #a07145;
+      background-color: #fd933cfe;
     }
     
     .button-register:active {
-      background-color: #8e6b3e;
+      background-color: #ff8019;
     }
     
     /* Estilos para el formulario */
@@ -109,10 +112,40 @@
     }
     
     a {
-      color: #af6b4c;
+      color: #ff8019;
       text-decoration: none;
     }
     
     a:hover {
       text-decoration: underline;
     }
+
+
+    .size_social {
+      font-size: 32px;
+      margin-top: 10px;
+  }
+  
+  /* Estilo para el separador "OR" */
+  .or-divider {
+    position: relative;
+    margin: 0 10px;
+    color: #555; 
+    font-weight: bold;
+    
+  }
+
+.top-bar {
+  background-color: #ff8019; /* Color de fondo de la barra */
+  padding: 10px; /* Espacio interno de la barra */
+  position: fixed; /* Posición fija para que siempre esté en la parte superior */
+  top: 0; /* Coloca la barra en la parte superior */
+  left: 0; /* Coloca la barra en la esquina superior izquierda */
+  width: 100%; /* Ancho completo de la pantalla */
+}
+
+.top-bar img {
+  height: 40px; /* Ajusta la altura del logo según tus preferencias */
+  margin-left: 20px; /* Margen izquierdo para separar el logo del borde de la barra */
+
+}
