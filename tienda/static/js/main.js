@@ -186,7 +186,7 @@
     //     {
     //         id: "Clorox Color",
     //         titulo: "Legia Clorox Color 930ml",
-    //         imagen: "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/20088558_2-twOiUlJX-medium.jpg",
+    //         imagen: "https://plazavea.vteximg.com.br/arquivos/ids/26845112-512-512/20016357-1.jpg",
     //         categoria: {
     //             nombre: "Limpieza",
     //             id: "limpieza"
@@ -301,9 +301,7 @@
                 actualizarBotonesAgregar();
                 cargarProductos(data);
             })
-            .catch(error => console.error("Error fetching products:", error));
-
-    productos.forEach()
+            .catch(error => console.error("Error fetching products:", error));   
 
     const contenedorProductos = document.querySelector("#contenedor-productos");
     const botonesCategorias = document.querySelectorAll(".boton-categoria");
@@ -341,9 +339,9 @@
             e.currentTarget.classList.add("active");
     
             if (e.currentTarget.id != "todos") {
-                const productoCategoria = productos.find(producto => producto.category.nombre === e.currentTarget.id);
-                tituloPrincipal.innerText = e.currentTarget.innerText;
-                const productosBoton = productos.filter(producto => producto.category.nombre === e.currentTarget.id);
+                const productoCategoria = productos.find(producto => producto.category === e.currentTarget.id);
+                tituloPrincipal.innerText = productoCategoria.name;
+                const productosBoton = productos.filter(producto => producto.category === e.currentTarget.id);
                 cargarProductos(productosBoton);
             } else {
                 tituloPrincipal.innerText = "Todos los productos";
@@ -371,10 +369,10 @@
     }
     
     function agregarAlCarrito(e) {
-        const idBoton = e.currentTarget.name;
+        const idBoton = e.currentTarget.id;
         const productoAgregado = productos.find(producto => producto.name === idBoton);
     
-        if(productosEnCarrito.some(producto => producto.id === idBoton)) {
+        if(productosEnCarrito.some(producto => producto.name === idBoton)) {
             const index = productosEnCarrito.findIndex(producto => producto.name === idBoton);
             productosEnCarrito[index].stock++;
         } else {
