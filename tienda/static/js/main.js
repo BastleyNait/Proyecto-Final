@@ -334,13 +334,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     botonesCategorias.forEach(boton => {
         boton.addEventListener("click", (e) => {
-
+            console.log(productos)
             botonesCategorias.forEach(boton => boton.classList.remove("active"));
             e.currentTarget.classList.add("active");
-
             if (e.currentTarget.id != "todos") {
                 const productoCategoria = productos.find(producto => producto.category === e.currentTarget.id);
-                tituloPrincipal.innerText = productoCategoria.name;
+                tituloPrincipal.innerText = productoCategoria.category;
                 const productosBoton = productos.filter(producto => producto.category === e.currentTarget.id);
                 cargarProductos(productosBoton);
             } else {
