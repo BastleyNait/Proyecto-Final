@@ -4,7 +4,6 @@ from tienda.signals import (
     product_updated,
     category_updated,
     order_updated,
-    customer_updated,
 )
 from tienda.middleware import get_current_request
 
@@ -51,30 +50,22 @@ def update_product_user_id(sender, instance, **kwargs):
 product_updated.connect(update_product_user_id, sender=Product)
 
 class Customer(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    shipping_address = models.TextField()
+    customer_name = models.OneToOneField(User, on_delete=models.CASCADE,to_field='username',unique=True,default=None)
+    shipping_address = models.TextField(blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True, editable=False)
     modify_date = models.DateTimeField(auto_now=True,editable=False)
     status = models.BooleanField(default=True)
     # Agrega cualquier otro campo adicional que desees para el perfil del cliente
     def __str__(self):
-        return self.user.username
-
-def update_customer_user_id(sender, instance, **kwargs):
-    request = get_current_request()
-    user = request.user if request and request.user.is_authenticated else None
-    if user:
-        instance.user_id = user.id
-
-customer_updated.connect(update_customer_user_id, sender=Customer)
+        return self.customer_name.username
 
 class Order(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE,to_field='customer_name')
     items = models.ManyToManyField(Product, through='OrderItem')
-    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     status = models.BooleanField(default=True)
-    created_date = models.DateTimeField(auto_now_add=True, editable=False)
-    modify_date = models.DateTimeField(auto_now_add=True, editable=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modify_date = models.DateTimeField(auto_now=True, editable=False)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, to_field='id', null=True, blank=True, editable=False)
 
 def update_order_user_id(sender, instance, **kwargs):

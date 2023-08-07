@@ -25,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', views.home, name='home'),
     path('carrito/', views.carrito, name='carrito'),
+    path('carrito/comprar', views.comprar, name='comprar'),
     path('login/', views.user_login, name='login'),
     path('signin/', views.signin, name='signin'),
     path('products/', include(productsurls)),

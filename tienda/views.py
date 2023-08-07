@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import SignUpForm, LogInForm
+from .models import Customer
 
 # Create your views here.
 
@@ -10,10 +11,11 @@ from .forms import SignUpForm, LogInForm
 def home(request):
     return render(request, 'index.html')
 
-
 def carrito(request):
     return render(request, 'carrito.html')
 
+def comprar(request):
+    return render(request, 'comprar.html')
 
 def signin(request):
     if request.method == "GET":
@@ -27,7 +29,10 @@ def signin(request):
                     username=request.POST['username'],
                     password=request.POST['password1']
                 )
-                user.save()
+                customer = Customer.objects.create(
+                    customer_name=user
+                )
+                customer.save()
                 login(request, user,
                       backend='django.contrib.auth.backends.ModelBackend')
                 print("se creo la cuenta y se inicio sesion")
